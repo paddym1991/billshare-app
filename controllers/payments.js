@@ -1,10 +1,10 @@
 'use strict';
 
 const logger = require('../utils/logger');
-const playlistStore = require('../models/playlist-store');
+const playlistStore = require('../models/payment-store');
 const uuid = require('uuid');
 
-const playlist = {
+const payments = {
   index(request, response) {
     const playlistId = request.params.id;
     logger.debug('Playlist id = ', playlistId);
@@ -15,7 +15,7 @@ const playlist = {
     response.render('playlist', viewData);
   },
 
-  deleteSong(request, response) {
+  deletePayment(request, response) {
     const playlistId = request.params.id;
     const songId = request.params.songid;
     logger.debug(`Deleting Song ${songId} from Playlist ${playlistId}`);
@@ -23,7 +23,7 @@ const playlist = {
     response.redirect('/playlist/' + playlistId);
   },
 
-  addSong(request, response) {
+  addSongPayment(request, response) {
     const playlistId = request.params.id;
     const playlist = playlistStore.getPlaylist(playlistId);
     const newSong = {
@@ -38,4 +38,4 @@ const playlist = {
   },
 };
 
-module.exports = playlist;
+module.exports = payments;

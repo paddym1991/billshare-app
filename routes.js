@@ -6,7 +6,7 @@ const router = express.Router();
 const accounts = require('./controllers/accounts.js');
 const dashboard = require('./controllers/dashboard.js');
 const about = require('./controllers/about.js');
-const playlist = require('./controllers/playlist.js');
+const payments = require('./controllers/payments.js');
 
 router.get('/', accounts.index);
 router.get('/login', accounts.login);
@@ -17,11 +17,11 @@ router.post('/authenticate', accounts.authenticate);
 
 router.get('/dashboard', dashboard.index);
 router.get('/dashboard/deleteplaylist/:id', dashboard.deletePlaylist);
-router.post('/dashboard/addplaylist', dashboard.addPlaylist);
+router.post('/dashboard/addpayment', dashboard.addPayment);
 
 router.get('/about', about.index);
-router.get('/playlist/:id', playlist.index);
-router.get('/playlist/:id/deletesong/:songid', playlist.deleteSong);
-router.post('/playlist/:id/addsong', playlist.addSong);
+router.get('/payments/:id', payments.index);
+router.get('/payments/:id/deletePayment/:paymentId', payments.deletePayment);
+router.post('/payments/:id/addpayment, playlist.addPayment');
 
 module.exports = router;
