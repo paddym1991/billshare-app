@@ -1,40 +1,40 @@
 'use strict';
 
 const logger = require('../utils/logger');
-const playlistStore = require('../models/payment-store');
+const paymentStore = require('../models/payment-store');
 const uuid = require('uuid');
 
 const payments = {
   index(request, response) {
-    const playlistId = request.params.id;
-    logger.debug('Playlist id = ', playlistId);
+    const paymentsId = request.params.id;
+    logger.debug('Payment id = ', paymentsId);
     const viewData = {
-      title: 'Playlist',
-      playlist: playlistStore.getPlaylist(playlistId),
+      title: 'Payment',
+      payments: paymentStore.getPayments(paymentsId),
     };
-    response.render('playlist', viewData);
+    response.render('payments', viewData);
   },
 
   deletePayment(request, response) {
-    const playlistId = request.params.id;
-    const songId = request.params.songid;
-    logger.debug(`Deleting Song ${songId} from Playlist ${playlistId}`);
-    playlistStore.removeSong(playlistId, songId);
-    response.redirect('/playlist/' + playlistId);
+    const paymentsId = request.params.id;
+    const paymentId = request.params.paymentid;
+    logger.debug(`Deleting Payment ${paymentId} from Payments ${paymentsId}`);
+    paymentStore.removePayment(paymentsId, paymentId);
+    response.redirect('/payments/' + paymentsId);
   },
 
-  addSongPayment(request, response) {
-    const playlistId = request.params.id;
-    const playlist = playlistStore.getPlaylist(playlistId);
-    const newSong = {
+  addPayment(request, response) {
+    const paymentsId = request.params.id;
+    const payments = paymentStore.getPayments(paymentsId);
+    const newPayment= {
       id: uuid(),
       title: request.body.title,
-      artist: request.body.artist,
-      duration: Number(request.body.duration),
+      payer: request.body.payer,
+      amount: Number(request.body.amount),
     };
-    logger.debug('New Song = ', newSong);
-    playlistStore.addSong(playlistId, newSong);
-    response.redirect('/playlist/' + playlistId);
+    logger.debug('New Payment = ', newPayment);
+    paymentStore.addPayment(paymentsId, newPayment);
+    response.redirect('/payments/' + paymentsId);
   },
 };
 
