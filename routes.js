@@ -6,7 +6,7 @@ const router = express.Router();
 const accounts = require('./controllers/accounts.js');
 const dashboard = require('./controllers/dashboard.js');
 const about = require('./controllers/about.js');
-const payments = require('./controllers/payments.js');
+const expense = require('./controllers/expense.js');
 
 router.get('/', accounts.index);
 router.get('/login', accounts.login);
@@ -16,12 +16,12 @@ router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
 
 router.get('/dashboard', dashboard.index);
-router.get('/dashboard/deleteplaylist/:id', dashboard.deletePlaylist);
-router.post('/dashboard/addpayment', dashboard.addPayment);
+router.get('/dashboard/deleteexpense/:id', dashboard.deleteExpense);
+router.post('/dashboard/addexpense', dashboard.addExpense);
 
 router.get('/about', about.index);
-router.get('/payments/:id', payments.index);
-router.get('/payments/:id/deletePayment/:paymentId', payments.deletePayment);
-router.post('/payments/:id/addpayment, playlist.addPayment');
+router.get('/expense/:id', expense.index);
+router.get('/expense/:id/deletePayment/:paymentId', expense.deletePayment);
+router.post('/payments/:id/addpayment, playlist.addExpense');
 
 module.exports = router;

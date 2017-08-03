@@ -2,7 +2,7 @@
 
 const accounts = require ('./accounts.js');
 const logger = require('../utils/logger');
-const paymentStore = require('../models/payment-store');
+const expenseStore = require('../models/expense-store');
 const uuid = require('uuid');
 
 
@@ -12,30 +12,30 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Billshare Dashboard',
-      payments: paymentStore.getUserPayments(loggedInUser.id),
+      Expenses: expenseStore.getUserExpenses(loggedInUser.id),
       user: loggedInUser,
     };
-    logger.info('about to render', paymentStore.getAllPaymentLists());
+    logger.info('about to render', expenseStore.getAllExpenses());
     response.render('dashboard', viewData);
   },
 
-  deletePlaylist(request, response) {
-    const playlistId = request.params.id;
-    logger.debug(`Deleting Playlist ${playlistId}`);
-    paymentStore.removePlaylist(playlistId);
+  deleteExpense(request, response) {
+    const expenseId = request.params.id;
+    logger.debug(`Deleting Expense ${expenseId}`);
+    expenseStore.removeExpense(expenseId);
     response.redirect('/dashboard');
   },
 
-  addPayments(request, response) {
+  addExpense(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
-    const newPayment = {
+    const newExpense = {
       id: uuid(),
       userid: loggedInUser.id,
       title: request.body.title,
       payments: [],
     };
-    logger.debug('Creating a new PaymentList', newPayment);
-    paymentStore.addPayment(newPayment);
+    logger.debug('Creating a new Expense', newExpense);
+    expenseStore.addExpense(newExpense);
     response.redirect('/dashboard');
   },
 
