@@ -24,5 +24,4 @@ router.get('/expense/:id', expense.index);
 router.get('/expense/:id/deletePayment/:paymentId', expense.deletePayment);
 router.post('/payments/:id/addpayment, playlist.addExpense');
 
-
 module.exports = router;
