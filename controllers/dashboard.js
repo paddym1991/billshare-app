@@ -12,8 +12,8 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Billshare Dashboard',
-      Expenses: expenseStore.getUserExpenses(loggedInUser.id),
-      user: loggedInUser,
+      expenses: expenseStore.getUserExpenses(loggedInUser.id),
+      user: loggedInUser.id,
     };
     logger.info('about to render', expenseStore.getAllExpenses());
     response.render('dashboard', viewData);

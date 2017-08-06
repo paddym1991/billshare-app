@@ -20,14 +20,14 @@ const expenseStore = {
     return this.store.findBy(this.collection, { userid: userId });
   },
 
-  addExpense(payment) {
-    this.store.add(this.collection, payment);
+  addExpense(expense) {
+    this.store.add(this.collection, expense);
     this.store.save();
   },
 
   removeExpense(id) {
-    const payment = this.getPayment(id);
-    this.store.remove(this.collection, payment);
+    const expense = this.getExpense(id);
+    this.store.remove(this.collection, expense);
     this.store.save();
   },
 
