@@ -7,10 +7,10 @@ const uuid = require('uuid');
 const expense = {
   index(request, response) {
     const expenseId = request.params.id;
-    logger.debug('Payment id = ', expenseId);
+    logger.debug('Expense id = ', expenseId);
     const viewData = {
       title: 'Expense',
-      payments: expenseStore.getExpense(expenseId),
+      expense: expenseStore.getExpense(expenseId),
     };
     response.render('expense', viewData);
   },

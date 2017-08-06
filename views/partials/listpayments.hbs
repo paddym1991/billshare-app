@@ -1,0 +1,30 @@
+<table class="ui table">
+    <thead>
+    <tr>
+        <th>Song</th>
+        <th>Artist</th>
+        <th>Duration</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each expense.payments}}
+        <tr>
+            <td>
+                {{title}}
+            </td>
+            <td>
+                {{payer}}
+            </td>
+            <td>
+                {{amount}}
+            </td>
+            <td>
+                <a href="/expense/{{../expense.id}}/deletepayment/{{id}}" class="ui icon button">
+                    <i class="icon trash"></i>
+                </a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
