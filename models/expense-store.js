@@ -36,9 +36,15 @@ const expenseStore = {
     this.store.save();
   },
 
-  addPayment(userId, newPayment) {
+  addPayment(id, payment) {
+    const expense = this.getExpense(id);
+    expense.payments.push(payment);
+
+    /*
+    addPayment(userId, newPayment) {
     const expense = this.getUsersExpense(userId);
     expense[0].payments.push(newPayment);
+    */
 
 
     let duration = 0;

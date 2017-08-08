@@ -22,6 +22,6 @@ router.post('/dashboard/addexpense', dashboard.addExpense);
 router.get('/about', about.index);
 router.get('/expense/:id', expense.index);
 router.get('/expense/:id/deletepayment/:paymentid', expense.deletePayment);
-router.post('/expense/:id/addpayment, expense.addPayment');
+router.post('/expense/:id/addpayment', expense.addPayment);
 
 module.exports = router;
