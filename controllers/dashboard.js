@@ -38,10 +38,6 @@ const dashboard = {
     expenseStore.addExpense(newExpense);
     response.redirect('/dashboard');
   },
-
-  addPayment(request, response) {
-
-  }
 };
 
 module.exports = dashboard;

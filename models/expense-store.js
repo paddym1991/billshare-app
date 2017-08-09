@@ -40,19 +40,12 @@ const expenseStore = {
     const expense = this.getExpense(id);
     expense.payments.push(payment);
 
-    /*
-    addPayment(userId, newPayment) {
-    const expense = this.getUsersExpense(userId);
-    expense[0].payments.push(newPayment);
-    */
-
-
-    let duration = 0;
+    let total = 0;
     for (let i = 0; i < expense.payments.length; i++) {
-      duration += expense.payments[i].duration;
+      total += expense.payments[i].amount;
     }
 
-    expense.duration = duration;
+    expense.total = total;
     this.store.save();
   },
 
