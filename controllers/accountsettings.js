@@ -24,6 +24,9 @@ const accountsettings = {
     user.lastName = updateUser.lastName;
     user.email = updateUser.email;
     user.password = updateUser.password;
+
+    logger.info(`updating ${user.email}`);
+    response.redirect('/dashboard');
   },
 };
 
