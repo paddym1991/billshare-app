@@ -4,6 +4,7 @@ const accounts = require ('./accounts.js');
 const logger = require('../utils/logger');
 const expenseStore = require('../models/expense-store');
 const uuid = require('uuid');
+const groupStore = require('../models/group-store');
 
 
 const dashboard = {
@@ -36,6 +37,26 @@ const dashboard = {
     };
     logger.debug('Creating a new Expense', newExpense);
     expenseStore.addExpense(newExpense);
+    response.redirect('/dashboard');
+  },
+
+  addGroup(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
+    const newGroup = {
+      id: uuid(),
+      userid: loggedInUser.id,
+      title: request.body.title,
+      members: [],
+    };
+    logger.debug('Creating a new Group', newGroup);
+    groupStore.addGroup(newGroup);
+    response.redirect('/dashboard');
+  },
+
+  deleteGroup(request, response) {
+    const groupId = request.params.id;
+    logger.debug(`Deleting Group ${groupId}`);
+    groupStore.removeGroup(groupId);
     response.redirect('/dashboard');
   },
 };

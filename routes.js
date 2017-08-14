@@ -7,6 +7,7 @@ const accounts = require('./controllers/accounts.js');
 const dashboard = require('./controllers/dashboard.js');
 const about = require('./controllers/about.js');
 const expense = require('./controllers/expense.js');
+const group = require('./controllers/group.js');
 const accountsettings = require('./controllers/accountsettings.js');
 
 router.get('/', accounts.index);
@@ -18,6 +19,8 @@ router.post('/authenticate', accounts.authenticate);
 
 router.get('/dashboard', dashboard.index);
 router.get('/dashboard/deleteexpense/:id', dashboard.deleteExpense);
+router.get('/dashboard/deletegroup/:id', dashboard.deleteGroup);
+router.post('/dashboard/addgroup', dashboard.addGroup);
 router.post('/dashboard/addexpense', dashboard.addExpense);
 
 router.get('/about', about.index);
@@ -27,5 +30,6 @@ router.post('/expense/:id/addpayment', expense.addPayment);
 
 router.get('/accountsettings', accountsettings.index);
 router.post('/accountsettings/update', accountsettings.update);
+
 
 module.exports = router;
