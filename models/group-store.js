@@ -8,7 +8,7 @@ const groupStore = {
   store: new JsonStore('./models/group-store.json', { groupCollection: [] }),
   collection: 'groupCollection',
 
-  getAllgroups() {
+  getAllGroups() {
     return this.store.findAll(this.collection);
   },
 
@@ -22,6 +22,7 @@ const groupStore = {
 
   addGroup(group) {
     this.store.add(this.collection, group);
+    this.store.save();
   },
 
   removeGroup(id) {
@@ -51,6 +52,6 @@ const groupStore = {
   getMemberById(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },
-
-
 };
+
+module.exports = groupStore;

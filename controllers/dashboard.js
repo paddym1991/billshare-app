@@ -5,6 +5,7 @@ const logger = require('../utils/logger');
 const expenseStore = require('../models/expense-store');
 const uuid = require('uuid');
 const groupStore = require('../models/group-store');
+const userStore = require('../models/user-store');
 
 
 const dashboard = {
@@ -13,9 +14,11 @@ const dashboard = {
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Billshare Dashboard',
+      groups: groupStore.getUserGroups(loggedInUser.id),
       expenses: expenseStore.getUserExpenses(loggedInUser.id),
       user: loggedInUser.id,
     };
+    logger.info('about to render', groupStore.getAllGroups());
     logger.info('about to render', expenseStore.getAllExpenses());
     response.render('dashboard', viewData);
   },

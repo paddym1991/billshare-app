@@ -28,6 +28,8 @@ router.get('/expense/:id', expense.index);
 router.get('/expense/:id/deletepayment/:paymentid', expense.deletePayment);
 router.post('/expense/:id/addpayment', expense.addPayment);
 
+
+
 router.get('/accountsettings', accountsettings.index);
 router.post('/accountsettings/update', accountsettings.update);
 

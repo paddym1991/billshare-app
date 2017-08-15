@@ -1,18 +1,39 @@
 <div class="ui two column grid basic middle aligned segment">
     <div class="column">
-        <form class="ui stacked segment form" action="/dashboard/addGroup" method="POST">
+        <form class="ui stacked segment form" action="/dashboard/addgroup" method="POST">
             <h3 class="ui header">Add Group</h3>
             <div class="field">
                 <label>Title</label>
                 <input placeholder="Title" type="text" name="title">
 
+                <button class="ui blue submit button">Add Group</button>
+            </div>
         </form>
         <form class="ui stacked segment form" action="/group/addMember" method="POST">
             <h3 class="ui header">Members</h3>
-            <div class="two fields">
+            <div class="three fields">
                 <div class="field">
-                    <label>Name</label>
-                    <input placeholder="Name" type="text" name="name">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text" name="firstName" value="{{user.firstName}}" required>
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text" name="lastName" value="{{user.lastName}}" required>
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input placeholder="Email" type="text" name="email" value="{{user.email}}" required>
+                </div>
+            </div>
+
+            <div class="three fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text" name="firstName">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text" name="lastName">
                 </div>
                 <div class="field">
                     <label>Email</label>
@@ -20,10 +41,14 @@
                 </div>
             </div>
 
-            <div class="two fields">
+            <div class="three fields">
                 <div class="field">
-                    <label>Name</label>
-                    <input placeholder="Name" type="text" name="name">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text" name="firstName">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text" name="lastName">
                 </div>
                 <div class="field">
                     <label>Email</label>
@@ -31,16 +56,6 @@
                 </div>
             </div>
 
-            <div class="two fields">
-                <div class="field">
-                    <label>Name</label>
-                    <input placeholder="Name" type="text" name="name">
-                </div>
-                <div class="field">
-                    <label>Email</label>
-                    <input placeholder="Email" type="text" name="email">
-                </div>
-            </div>
             <button class="ui blue submit button">Add Group</button>
         </form>
     </div>

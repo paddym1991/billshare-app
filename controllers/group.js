@@ -11,14 +11,17 @@ const group = {
   index(request, response) {
     const groupId = request.params.id;
     logger.debug('Group id = ', groupId);
+    const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Group',
       group: groupStore.getGroup(groupId),
+      user: loggedInUser,
     };
     response.render('group', viewData);
   },
 
   addMember(request, response) {
+    let user = accounts.getCurrentUser(request);
     const groupId = request.params.id;
     const group = groupStore.getGroup(groupId);
     const newMember= {
