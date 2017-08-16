@@ -4,20 +4,47 @@ const accounts = require ('./accounts.js');
 const logger = require('../utils/logger');
 const groupStore = require('../models/group-store');
 const uuid = require('uuid');
+const expenseStore = require('../models/expense-store');
+const userStore = require('../models/user-store');
 
 
 
 const group = {
   index(request, response) {
+    logger.info('group rendering');
     const groupId = request.params.id;
     logger.debug('Group id = ', groupId);
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Group',
       group: groupStore.getGroup(groupId),
+      expenses: expenseStore.getUserExpenses(loggedInUser.id),
       user: loggedInUser,
     };
+    logger.info('about to render', expenseStore.getAllExpenses());
     response.render('group', viewData);
+  },
+
+  deleteExpense(request, response) {
+    const expenseId = request.params.id;
+    logger.debug(`Deleting Expense ${expenseId}`);
+    expenseStore.removeExpense(expenseId);
+    response.redirect('/dashboard');
+  },
+
+  addExpense(request, response) {
+    const groupId = request.params.id;
+    const group = groupStore.getGroup(groupId);
+    const loggedInUser = accounts.getCurrentUser(request);
+    const newExpense = {
+      id: uuid(),
+      userid: loggedInUser.id,
+      title: request.body.title,
+      payments: [],
+    };
+    logger.debug('Creating a new Expense', newExpense);
+    expenseStore.addExpense(newExpense);
+    response.redirect('/dashboard');
   },
 
   addMember(request, response) {
@@ -42,4 +69,6 @@ const group = {
     response.redirect('/dashoard/' + groupId);
   },
 
-}
+};
+
+module.exports = group;
