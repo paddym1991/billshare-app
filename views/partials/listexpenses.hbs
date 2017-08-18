@@ -4,11 +4,11 @@
         <h2 class="ui header">
             {{title}}
         </h2>
-        <p> Total Amount: {{total}} </p>
+        <p> Total Amount: € {{total}} </p>
         <a href="/expense/{{id}}" class="ui icon button">
             <i class="icon folder open"></i>
         </a>
-        <a href="/dashboard/deleteexpense/{{id}}" class="ui icon button">
+        <a href="/group/{{../group.id}}/deleteexpense/{{id}}" class="ui icon button">
             <i class="icon trash"></i>
         </a>
     </section>

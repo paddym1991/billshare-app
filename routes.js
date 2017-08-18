@@ -18,10 +18,15 @@ router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
 
 router.get('/dashboard', dashboard.index);
-router.get('/dashboard/deleteexpense/:id', dashboard.deleteExpense);
 router.get('/dashboard/deletegroup/:id', dashboard.deleteGroup);
-router.post('/dashboard/addexpense', dashboard.addExpense);
 router.post('/dashboard/addgroup', dashboard.addGroup);
+
+
+
+router.get('/dashboard/:id/deletegroup/:groupid', dashboard.deleteGroup);
+router.post('/dashboard/:id/addgroup', dashboard.addGroup);
+
+
 
 router.get('/about', about.index);
 router.get('/expense/:id', expense.index);
@@ -29,6 +34,10 @@ router.get('/expense/:id/deletepayment/:paymentid', expense.deletePayment);
 router.post('/expense/:id/addpayment', expense.addPayment);
 
 router.get('/group/:id', group.index);
+router.get('/group/:id/deleteexpense/:expenseid', group.deleteExpense);
+router.get('/group/deleteexpense/:id', group.deleteExpense);
+router.post('/group/addexpense', group.addExpense);
+router.post('/group/:id/addexpense', group.addExpense)
 
 
 router.get('/accountsettings', accountsettings.index);

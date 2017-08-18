@@ -4,6 +4,8 @@ const userstore = require('../models/user-store');
 const expensestore = require('../models/expense-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
+const groupStore = require('../models/group-store');
+const userStore = require('../models/user-store');
 
 const accounts = {
 
@@ -22,7 +24,7 @@ const accounts = {
   },
 
   logout(request, response) {
-    response.cookie('expense', '');
+    response.cookie('group', '');
     response.redirect('/');
   },
 
@@ -33,18 +35,60 @@ const accounts = {
     response.render('signup', viewData);
   },
 
+  /*
+  register(request, response) {
+
+    const user = {
+    id: uuid(),
+    email: request.body.email,
+    password: request.body.password,
+    name: {
+      first: request.body.firstName,
+      last:request.body.lastName,
+    },
+    groups: [],
+    };
+    user.name.full = user.name.first + ' ' + user.name.last;
+    userStore.addUser(user);
+    logger.info('registering ${user.email}');
+    response.redirect('/login');
+    },
+  */
+
   register(request, response) {
     const user = request.body;
     user.id = uuid();
-    userstore.addUser(user);
+    userStore.addUser(user);
     logger.info(`registering ${user.email}`);
     response.redirect('/');
   },
 
+
+
+  /*
+  register(request, response) {
+
+    const user = request.body;
+    user.id = uuid();
+    userstore.addUser(user);
+    logger.info(`registering ${user.email}`);
+
+    const newGroupList = {
+      id: uuid(),
+      userid: user.id,
+      groups: [],
+    };
+    logger.info('Creating a new Group List', newGroupList);
+    groupStore.addGroupList(newGroupList);
+
+    response.redirect('/');
+  },
+*/
+
   authenticate(request, response) {
     const user = userstore.getUserByEmail(request.body.email);
     if (user) {
-      response.cookie('expense', user.email);
+      response.cookie('group', user.email);
       logger.info(`logging in ${user.email}`);
       response.redirect('/dashboard');
     } else {
@@ -53,8 +97,8 @@ const accounts = {
   },
 
   getCurrentUser(request) {
-    const userEmail = request.cookies.expense
-    return userstore.getUserByEmail(userEmail);
+    const userEmail = request.cookies.group;
+    return userStore.getUserByEmail(userEmail);
   },
 };
 
