@@ -37,6 +37,11 @@ const dashboard = {
     groupStore.addGroup(newGroup);
     response.redirect('/dashboard');
   },
+
+  getCurrentGroup(request) {
+    const groupId = request.cookies.expense;
+    return groupStore.getGroup(groupId);
+  },
 };
 
 module.exports = dashboard;

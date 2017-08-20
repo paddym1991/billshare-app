@@ -68,6 +68,11 @@ const groupStore = {
     this.store.save();
   },
 
+  getExpense(id) {
+    return this.store.findOneBy(this.collection, { id: id });
+  },
+
+
   /*
   removeGroup(id) {
     const group = this.getGroup(id);

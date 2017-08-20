@@ -20,7 +20,17 @@ const expenseStore = {
     return this.store.findBy(this.collection, { userid: userId });
   },
 
-  addExpense(expense) {
+  getGroupExpenses(groupId) {
+    return this.store.findBy(this.collection, { groupid: groupId });
+  },
+  /*
+    addExpense(expense) {
+      this.store.add(this.collection, expense);
+      this.store.save();
+    },
+    */
+
+  addExpense(id, expense) {
     this.store.add(this.collection, expense);
     this.store.save();
   },
