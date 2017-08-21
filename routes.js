@@ -29,7 +29,9 @@ router.post('/expense/:id/addpayment', expense.addPayment);
 
 router.get('/group/:id', group.index);
 router.get('/group/:id/deleteexpense/:expenseid', group.deleteExpense);
-router.post('/group/:id/addexpense', group.addExpense)
+router.post('/group/:id/addexpense', group.addExpense);
+router.post('/group/:id/addmember', group.addMember);
+
 
 
 router.get('/accountsettings', accountsettings.index);
