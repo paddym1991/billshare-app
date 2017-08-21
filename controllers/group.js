@@ -4,15 +4,18 @@ const logger = require('../utils/logger');
 const groupStore = require('../models/group-store');
 const expenseStore = require('../models/expense-store');
 const uuid = require('uuid');
+const accounts = require('./accounts.js');
 
 const group = {
   index(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request);
     const groupId = request.params.id;
     logger.debug('Group id = ', groupId);
     const viewData = {
       title: 'Group',
       group: groupStore.getGroup(groupId),
       expenses: expenseStore.getGroupExpenses(groupId),
+      user: loggedInUser,
     };
     response.render('group', viewData);
   },
