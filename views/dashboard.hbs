@@ -1,6 +1,11 @@
 {{> menu id="dashboard"}}
 
 <section class="ui segment">
+    <section class="ui center aligned segment">
+        <h2 class="ui header">
+            {{user.firstName}} {{user.lastName}}'s Groups
+        </h2>
+    </section>
     {{> listgroups}}
     {{> addgroup}}
 </section>
