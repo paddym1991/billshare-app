@@ -3,7 +3,13 @@
         <h2 class="ui header">
             {{title}}
         </h2>
-        <p> Members: {{total}} </p>
+
+    <p>
+        Members: {{#each members}}
+        <ul> {{firstname}} {{lastname}} </ul>
+    {{/each}}
+        </p>
+
         <a href="/group/{{id}}" class="ui icon button">
             <i class="icon folder open"></i>
         </a>
