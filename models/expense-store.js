@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 const JsonStore = require('./json-store');
+const groupStore = require('../models/group-store');
 
 const expenseStore = {
 
@@ -49,16 +50,37 @@ const expenseStore = {
   addPayment(id, payment) {
     const expense = this.getExpense(id);
     expense.payments.push(payment);
+    const group = groupStore.getGroup(expense.groupid);
 
     let total = 0;
     for (let i = 0; i < expense.payments.length; i++) {
       total += expense.payments[i].amount;
     }
 
+    const splitTotal = payment.amount;
+    const split = ((splitTotal) / (group.members.length)).toFixed(2);
+    payment.splitTotal = splitTotal;
+    payment.split = split;
+    /*
+    let splitTotal = 0;
+    for (let i = 0; i < expense.payments.length; i++) {
+      splitTotal = expense.payments[i].amount;
+    }
+    expense.splitTotal = splitTotal;
+
+    let split = 0;
+    for (let i = 0; i < expense.payments.length; i++) {
+      split = (splitTotal / (group.members.length));
+    }
+    expense.split = split;
+    */
     expense.total = total;
     this.store.save();
   },
 
+  getPaymentById(id) {
+    return this.store.findOneBy(this.collection, { id: id });
+  },
 
   removePayment(userId, paymentid) {
     const expense = this.getExpense(userId);

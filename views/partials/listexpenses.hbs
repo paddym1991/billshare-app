@@ -5,6 +5,7 @@
             {{title}}
         </h2>
         <p> Total Amount: € {{total}} </p>
+        <p> split: {{#each payments}} € {{split}} {{/each}} </p>
         <a href="/expense/{{id}}" class="ui icon button">
             <i class="icon folder open"></i>
         </a>
