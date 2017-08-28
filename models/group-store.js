@@ -99,6 +99,12 @@ const groupStore = {
     this.store.save();
   },
 
+  getGroupMembers(groupId) {
+    const group = this.getGroup(groupId);
+    const members = group.members;
+    return members;
+  },
+
   getMemberById(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },

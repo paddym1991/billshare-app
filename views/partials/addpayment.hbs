@@ -9,6 +9,16 @@
             <input placeholder="Payer" type="text" name="payer">
         </div>
         <div class="field">
+            <label>Gender</label>
+            <select class="ui dropdown" name="payer">
+
+                {{#each expense.members}}
+                    <option value="{{member}}">{{firstname}} {{lastname}}</option>
+                {{/each}}
+
+            </select>
+        </div>
+        <div class="field">
             <label>Amount</label>
             <input placeholder="00" type="number" name="amount">
         </div>
