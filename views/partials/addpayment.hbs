@@ -5,15 +5,11 @@
             <input placeholder="Title" type="text" name="title">
         </div>
         <div class="field">
-            <label>Paid by</label>
-            <input placeholder="Payer" type="text" name="payer">
-        </div>
-        <div class="field">
             <label>Gender</label>
             <select class="ui dropdown" name="payer">
 
                 {{#each expense.members}}
-                    <option value="{{member}}">{{firstname}} {{lastname}}</option>
+                    <option value="{{firstname}} {{lastname}}">{{firstname}} {{lastname}}</option>
                 {{/each}}
 
             </select>
