@@ -1,0 +1,33 @@
+<h2 class="ui header">
+    Bills Due
+</h2>
+<table class="ui table">
+    <thead>
+    <tr>
+        <th>Bill Date Due</th>
+        <th>Bill Title</th>
+        <th>Amount Due</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each bills}}
+        <tr>
+            <td>
+                {{date}}
+            </td>
+            <td>
+                {{title}}
+            </td>
+            <td>
+                {{amount}}
+            </td>
+            <td>
+                <a href="/group/{{../group.id}}/deletebill/{{id}}" class="ui icon button">
+                    <i class="icon trash"></i>
+                </a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
