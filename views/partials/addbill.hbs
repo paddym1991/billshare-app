@@ -1,0 +1,24 @@
+<form class="ui raised segment form" name=addBill" action="/group/{{group.id}}/addbill" method="POST">
+    <h2 class="ui red center aligned header"> Add Bill Details</h2>
+    <section class="ui raised center aligned segment">
+        <div class="three fields">
+            <div class="field">
+                <label>Date Due</label>
+                <div class="ui input left icon">
+                    <i class="calendar icon"></i>
+                    <input placeholder="date" type="date" name="date" required>
+                </div>
+            </div>
+            <div class="field">
+                <label>Bill Title</label>
+                <input placeholder="Title" type="text" name="title">
+            </div>
+            <div class="field">
+                <label>Amount</label>
+                <input placeholder="00" type="number" name="amount">
+            </div>
+            <button class="ui blue submit button">Add Bill</button>
+        </div>
+        </div>
+    </section>
+</form>
