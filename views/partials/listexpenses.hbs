@@ -7,7 +7,7 @@
 
         <p> Total Amount: € {{total}} </p>
         <p> split: {{#each payments}} € {{split}} {{/each}} </p>
-        <p> Owed: {{#each payments}} € {{payer}} owed {{owed}} {{/each}} </p>
+        <p> Owed: {{#each payments}} {{payer}} owed € {{owed}} for {{title}} {{/each}} </p>
         <p> split:  € {{memberOwedTotal}}  </p>
         <a href="/expense/{{id}}" class="ui icon button">
             <i class="icon folder open"></i>

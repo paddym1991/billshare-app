@@ -1,6 +1,7 @@
 <table class="ui table">
     <thead>
     <tr>
+        <th>Date</th>
         <th>Title</th>
         <th>Paid by</th>
         <th>Amount</th>
@@ -10,6 +11,9 @@
     <tbody>
     {{#each expense.payments}}
         <tr>
+            <td>
+                {{date}}
+            </td>
             <td>
                 {{title}}
             </td>

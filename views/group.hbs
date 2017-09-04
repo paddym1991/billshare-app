@@ -6,17 +6,17 @@
         {{> membercard}}
     </div>
 
-
     <div class = "ten wide align right column padded">
         <section class="ui raised segment">
-            <h2 class="ui header">
+            <h2 class="ui center aligned header">
                 {{group.title}}: Expenses
             </h2>
             {{> listexpenses}}
             {{> addexpense}}
+        </section>
 
-
-            <h2 class="ui header">
+        <section class="ui raised segment">
+            <h2 class="ui center aligned header">
                 {{group.title}}: Bills Due
             </h2>
             {{> listbills}}
