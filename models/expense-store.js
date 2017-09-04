@@ -109,10 +109,10 @@ const expenseStore = {
     return this.store.findOneBy(this.collection, { id: id });
   },
 
-  removePayment(userId, paymentid) {
-    const expense = this.getExpense(userId);
-    const payments = expense[0].payments;
-    _.remove(payments, { id: paymentid});
+  removePayment(id, paymentId) {
+    const expense = this.getExpense(id);
+    const payments = expense.payments;
+    _.remove(payments, { id: paymentId});
     this.store.save();
   },
 };
