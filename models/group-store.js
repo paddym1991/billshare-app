@@ -92,10 +92,10 @@ const groupStore = {
     this.store.save();
   },
 
-  removeMember(userId, memberid) {
-    const group = this.getGroup(userId);
-    const members = group[0].members;
-    _.remove(members, { id: memberid});
+  removeMember(id, memberId) {
+    const group = this.getGroup(id);
+    const members = group.members;
+    _.remove(members, { id: memberId});
     this.store.save();
   },
 

@@ -51,7 +51,7 @@ const group = {
   deleteMember(request, response) {
     const groupId = request.params.id;
     const memberId = request.params.memberid;
-    logger.debug(`Deleting Expense ${memberId} from Group ${memberId}`);
+    logger.debug(`Deleting Member ${memberId} from Group ${groupId}`);
     groupStore.removeMember(groupId, memberId);
     response.redirect('/group/' + groupId);
   },
