@@ -35,8 +35,6 @@ router.post('/group/:id/addexpense', group.addExpense);
 router.post('/group/:id/addmember', group.addMember);
 router.post('/group/:id/addbill', group.addBillDue);
 
-
-
 router.get('/accountsettings', accountsettings.index);
 router.post('/accountsettings/update', accountsettings.update);
 
