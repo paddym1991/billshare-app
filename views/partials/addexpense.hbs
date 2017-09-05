@@ -6,3 +6,34 @@
     </div>
     <button class="ui blue submit button">Add Expense</button>
 </form>
+
+<section class="ui inverted green center aligned segment">
+    <section class="ui large inverted yellow segment">
+        <div class="ui accordion">
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Add Expense
+            </div>
+            <div class="content">
+                <form class="ui raised segment form" name="addExpense" action="/group/{{group.id}}/addexpense" method="POST">
+                    <div class="field">
+                        <label>Title</label>
+                        <input placeholder="Title" type="text" name="title">
+                    </div>
+                    <button class="ui blue submit button">Add Expense</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script>
+    // for dropdown feature
+    $('.ui .accordion')
+            .accordion({
+                selector: {
+                    trigger: '.title .icon'
+                }
+            })
+    ;
+</script>
