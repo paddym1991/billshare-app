@@ -29,3 +29,60 @@
     </div>
     <button class="ui blue submit button">Add Payment</button>
 </form>
+
+
+
+<section class="ui inverted green center aligned segment">
+    <section class="ui large inverted yellow segment">
+        <div class="ui accordion">
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Add Payment
+            </div>
+            <div class="content">
+                <form class="ui raised segment form" action="/expense/{{expense.id}}/addpayment" method="POST">
+                    <h3 class="ui header">Add Payment</h3>
+                    <div class="four fields">
+                        <div class="field">
+                            <label>Date Due</label>
+                            <div class="ui input left icon">
+                                <i class="calendar icon"></i>
+                                <input placeholder="date" type="date" name="date" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Title</label>
+                            <input placeholder="Title" type="text" name="title">
+                        </div>
+                        <div class="field">
+                            <label>Paid by</label>
+                            <select class="ui dropdown" name="payer">
+
+                                {{#each expense.members}}
+                                    <option value="{{firstname}} {{lastname}}">{{firstname}} {{lastname}}</option>
+                                {{/each}}
+
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Amount</label>
+                            <input placeholder="00" type="number" name="amount">
+                        </div>
+                    </div>
+                    <button class="ui blue submit button">Add Payment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script>
+    // for dropdown feature
+    $('.ui .accordion')
+            .accordion({
+                selector: {
+                    trigger: '.title .icon'
+                }
+            })
+    ;
+</script>
