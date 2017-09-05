@@ -1,20 +1,29 @@
-{{#each groups}}
-    <section class="ui blue inverted stacked segment">
-        <h2 class="ui header">
-            {{title}}
-        </h2>
+<section class="ui yellow inverted segment">
 
-    <p>
-        Members: {{#each members}}
-        <ul> {{firstname}} {{lastname}} </ul>
+    {{#each groups}}
+
+        <section class="ui teal inverted segment">
+            <section class="ui stacked segment">
+                <h2 class="ui header">
+                    {{title}}
+                </h2>
+
+            <p>
+                Members: {{#each members}}
+                <ul> {{firstname}} {{lastname}} </ul>
+            {{/each}}
+                </p>
+
+                <a href="/group/{{id}}" class="ui icon button">
+                    <i class="icon folder open"></i>
+                </a>
+                <a href="/dashboard/deletegroup/{{id}}" class="ui icon button">
+                    <i class="icon trash"></i>
+                </a>
+            </section>
+        </section>
+
     {{/each}}
-        </p>
 
-        <a href="/group/{{id}}" class="ui icon button">
-            <i class="icon folder open"></i>
-        </a>
-        <a href="/dashboard/deletegroup/{{id}}" class="ui icon button">
-            <i class="icon trash"></i>
-        </a>
-    </section>
-{{/each}}
+    {{> addgroup}}
+</section>

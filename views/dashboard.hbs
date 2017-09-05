@@ -1,18 +1,20 @@
 {{> menu id="dashboard"}}
 
-<section class="ui inverted green segment">
-    <section class="ui raised segment">
-        <section class="ui inverted red segment">
-            <section class="ui center aligned segment">
-                <h2 class="ui header">
-                    {{user.firstName}} {{user.lastName}}'s Groups
-                </h2>
-            </section>
-        </section>
-        {{> addgroup}}
-        <section class="ui inverted green segment">
-            {{> listgroups}}
-        </section>
+<section class="ui inverted teal segment">
+    <section class="ui yellow inverted raised segment">
+
+
+        <h2 class="ui center aligned black header">
+            {{user.firstName}} {{user.lastName}}'s Groups
+        </h2>
+
+
+
+
+
+        {{> listgroups}}
+
+
     </section>
 </section>
 
