@@ -1,15 +1,30 @@
-<div class="ui two column grid basic middle aligned segment">
-    <div class="column">
-        <form class="ui raised segment form" action="/dashboard/addgroup" method="POST">
-            <h3 class="ui header">Add Group</h3>
-            <div class="field">
-                <label>Title</label>
-                <input placeholder="Title" type="text" name="title">
+<section class="ui inverted green center aligned segment">
+    <section class="ui large inverted yellow segment">
+        <div class="ui accordion">
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Add Group
             </div>
+            <div class="content">
+                <form class="ui raised segment form" name="addGroup" action="/dashboard/addgroup" method="POST">
+                    <div class="field">
+                        <label>Title</label>
+                        <input placeholder="Title" type="text" name="title">
+                    </div>
+                    <button class="ui blue submit button">Add Group</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</section>
 
-            <button class="ui blue submit button">Add Group</button>
-
-        </form>
-    </div>
-</div>
-</div>
+<script>
+    // for dropdown feature
+    $('.ui .accordion')
+            .accordion({
+                selector: {
+                    trigger: '.title .icon'
+                }
+            })
+    ;
+</script>
