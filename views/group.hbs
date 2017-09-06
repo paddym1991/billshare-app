@@ -1,3 +1,65 @@
+{{> menu id="group"}}
+
+<section class="ui inverted green center aligned segment">
+    <section class="ui large inverted yellow segment">
+        <div class="ui accordion">
+            <div class="title">
+                <i class="dropdown icon"></i>
+                View/Add members details
+            </div>
+            <div class="content">
+
+                {{> membercard}}
+
+            </div>
+        </div>
+    </section>
+</section>
+
+<script>
+    // for dropdown feature
+    $('.ui .accordion')
+            .accordion({
+                selector: {
+                    trigger: '.title .icon'
+                }
+            })
+    ;
+</script>
+
+<div class="ui grid">
+    <div class="eight wide column">
+        <section class="ui segment">
+            <h2 class="ui center aligned header">
+                {{group.title}}: Expenses
+            </h2>
+            {{> listexpenses}}
+            {{> addexpense}}
+        </section>
+    </div>
+    <div class="eight wide column">
+        <section class="ui raised segment">
+            <h2 class="ui center aligned header">
+                {{group.title}}: Bills Due
+            </h2>
+            {{> listbills}}
+            {{> addbill}}
+        </section>
+    </div>
+    <div class="six wide column">
+        <section class="ui raised segment">
+            <h2 class="ui center aligned header">
+                {{group.title}}: Members
+            </h2>
+            {{> listmembers}}
+            {{> addmember}}
+        </section>
+
+    </div>
+
+</div>
+
+
 
 {{> menu id="group"}}
 

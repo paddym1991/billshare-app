@@ -1,17 +1,9 @@
 <div class="ui segment">
-
     <div class="content">
         <h2 class="ui header">
             {{group.title}}: Members
         </h2>
-        <tbody>
-        <tr>
-            <td>{{> listmembers}}</td>
-        </tr>
-        <tr>
-            <td>{{> addmember}}</td>
-        </tr>
-        </tbody>
-
+        {{> listmembers}}
+        {{> addmember}}
     </div>
 </div>
