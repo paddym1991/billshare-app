@@ -56,6 +56,14 @@ const group = {
     response.redirect('/group/' + groupId);
   },
 
+  deleteBillDue(request, response) {
+    const groupId = request.params.id;
+    const billId = request.params.billid;
+    logger.debug(`Deleting Bill ${billId} from Group ${groupId}`);
+    billStore.removeBill(groupId, billId);
+    response.redirect('/group/' + groupId);
+  },
+
   addBillDue(request, response) {
     const groupId = request.params.id;
     const group = groupStore.getGroup(groupId);
