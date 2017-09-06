@@ -5,6 +5,8 @@
         <th>Title</th>
         <th>Paid by</th>
         <th>Amount</th>
+        <th>Payer Owed</th>
+        <th>Split</th>
         <th></th>
     </tr>
     </thead>
@@ -21,7 +23,13 @@
                 {{payer}}
             </td>
             <td>
-                {{amount}}
+                €{{amount}}
+            </td>
+            <td>
+                €{{owed}}
+            </td>
+            <td>
+                €{{split}}
             </td>
             <td>
                 <a href="/expense/{{../expense.id}}/deletepayment/{{id}}" class="ui icon button">
