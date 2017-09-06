@@ -1,34 +1,27 @@
-<form class="ui raised segment form" action="/group/{{group.id}}/addexpense" method="POST">
-    <h3 class="ui header">Add Expense</h3>
-    <div class="field">
-        <label>Title</label>
-        <input placeholder="Title" type="text" name="title">
-    </div>
-    <button class="ui blue submit button">Add Expense</button>
-</form>
 
-<section class="ui inverted green center aligned segment">
-    <section class="ui large inverted yellow segment">
-        <div class="ui accordion">
-            <div class="title">
-                <i class="dropdown icon"></i>
-                Add Expense
-            </div>
-            <div class="content">
-                <form class="ui raised segment form" name="addExpense" action="/group/{{group.id}}/addexpense" method="POST">
-                    <div class="field">
-                        <label>Title</label>
-                        <input placeholder="Title" type="text" name="title">
-                    </div>
-                    <button class="ui blue submit button">Add Expense</button>
-                </form>
-            </div>
+
+<section class="ui inverted yellow center aligned segment">
+
+    <div class="ui accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            Add Expense
         </div>
-    </section>
+        <div class="content">
+            <form class="ui raised segment form" name="addExpense" action="/group/{{group.id}}/addexpense" method="POST">
+                <div class="field">
+                    <label>Title</label>
+                    <input placeholder="Title" type="text" name="title">
+                </div>
+                <button class="ui blue submit button">Add Expense</button>
+            </form>
+        </div>
+    </div>
+
 </section>
 
 <script>
-    // for dropdown feature
+
     $('.ui .accordion')
             .accordion({
                 selector: {

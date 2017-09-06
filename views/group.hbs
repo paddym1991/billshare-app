@@ -1,7 +1,7 @@
 {{> menu id="group"}}
 
-<section class="ui inverted green center aligned segment">
-    <section class="ui large inverted yellow segment">
+<section class="ui center aligned segment">
+    <section class="ui inverted yellow segment">
         <div class="ui accordion">
             <div class="title">
                 <i class="dropdown icon"></i>
@@ -16,8 +16,9 @@
     </section>
 </section>
 
+
 <script>
-    // for dropdown feature
+
     $('.ui .accordion')
             .accordion({
                 selector: {
@@ -29,60 +30,25 @@
 
 <div class="ui grid">
     <div class="eight wide column">
-        <section class="ui segment">
-            <h2 class="ui center aligned header">
-                {{group.title}}: Expenses
-            </h2>
-            {{> listexpenses}}
-            {{> addexpense}}
+        <section class="ui yellow inverted segment">
+            <section class="ui segment">
+                <h2 class="ui center aligned header">
+                    {{group.title}}: Expenses
+                </h2>
+                {{> listexpenses}}
+                {{> addexpense}}
+            </section>
         </section>
     </div>
     <div class="eight wide column">
-        <section class="ui raised segment">
-            <h2 class="ui center aligned header">
-                {{group.title}}: Bills Due
-            </h2>
-            {{> listbills}}
-            {{> addbill}}
-        </section>
-    </div>
-    <div class="six wide column">
-        <section class="ui raised segment">
-            <h2 class="ui center aligned header">
-                {{group.title}}: Members
-            </h2>
-            {{> listmembers}}
-            {{> addmember}}
-        </section>
-
-    </div>
-
-</div>
-
-
-
-{{> menu id="group"}}
-
-<div class="ui padded grid">
-    <div class = "six wide column">
-        {{> membercard}}
-    </div>
-
-    <div class = "ten wide align right column padded">
-        <section class="ui raised segment">
-            <h2 class="ui center aligned header">
-                {{group.title}}: Expenses
-            </h2>
-            {{> listexpenses}}
-            {{> addexpense}}
-        </section>
-
-        <section class="ui raised segment">
-            <h2 class="ui center aligned header">
-                {{group.title}}: Bills Due
-            </h2>
-            {{> listbills}}
-            {{> addbill}}
+        <section class="ui yellow inverted segment">
+            <section class="ui segment">
+                <h2 class="ui center aligned header">
+                    {{group.title}}: Bills Due
+                </h2>
+                {{> listbills}}
+                {{> addbill}}
+            </section>
         </section>
     </div>
 </div>

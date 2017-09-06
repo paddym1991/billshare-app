@@ -12,6 +12,7 @@ const dashboard = {
     const viewData = {
       title: 'Billshare Dashboard',
       groups: groupStore.getUserGroups(loggedInUser.id),
+      user: loggedInUser,
     };
     logger.info('about to render', groupStore.getAllGroups());
     response.render('dashboard', viewData);
@@ -32,6 +33,7 @@ const dashboard = {
       title: request.body.title,
       expenses: [],
       members: [],
+      bills: [],
     };
     logger.debug('Creating a new Group', newGroup);
     groupStore.addGroup(newGroup);
@@ -91,11 +93,11 @@ const dashboard = {
     expenseStore.addExpense(newExpense);
     response.redirect('/dashboard');
   },
-
+  
   addGroup(request, response) {
-
+    
     const userId = request.params.id;
-
+    
     const newGroup = {
       id: uuid(),
       group: request.body.group,
@@ -106,7 +108,7 @@ const dashboard = {
     groupStore.addGroup(userId, newGroup);
     response.redirect('/dashboard');
   },
-
+  
   /*
   addGroup(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
@@ -122,7 +124,7 @@ const dashboard = {
     response.redirect('/dashboard');
   },
 
-
+  
   deleteGroup(request, response) {
     const groupId = request.params.id;
     logger.debug(`Deleting Group ${groupId}`);

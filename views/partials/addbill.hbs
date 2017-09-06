@@ -1,64 +1,35 @@
-<form class="ui raised segment form" name=addBill" action="/group/{{group.id}}/addbill" method="POST">
-    <h2 class="ui red center aligned header"> Add Bill </h2>
-
-    <div class="three fields">
-        <div class="field">
-            <label>Date Due</label>
-            <div class="ui input left icon">
-                <i class="calendar icon"></i>
-                <input placeholder="date" type="date" name="date" required>
-            </div>
+<section class="ui inverted yellow center aligned segment">
+    <div class="ui accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            Add Bill
         </div>
-        <div class="field">
-            <label>Bill Title</label>
-            <input placeholder="Title" type="text" name="title">
-        </div>
-        <div class="field">
-            <label>Amount</label>
-            <input placeholder="00" type="number" name="amount">
-        </div>
-    </div>
-    <button class="ui blue submit button">Add Bill</button>
-</form>
-
-
-<section class="ui inverted green center aligned segment">
-    <section class="ui large inverted yellow segment">
-        <div class="ui accordion">
-            <div class="title">
-                <i class="dropdown icon"></i>
-                Add Bill
-            </div>
-            <div class="content">
-                <form class="ui raised segment form" name=addBill" action="/group/{{group.id}}/addbill" method="POST">
-                    <h2 class="ui red center aligned header"> Add Bill </h2>
-                    <div class="three fields">
-                        <div class="field">
-                            <label>Date Due</label>
-                            <div class="ui input left icon">
-                                <i class="calendar icon"></i>
-                                <input placeholder="date" type="date" name="date" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label>Bill Title</label>
-                            <input placeholder="Title" type="text" name="title">
-                        </div>
-                        <div class="field">
-                            <label>Amount</label>
-                            <input placeholder="00" type="number" name="amount">
-                        </div>
+        <div class="content">
+            <form class="ui raised segment form" name=addBill" action="/group/{{group.id}}/addbill" method="POST">
+                <h2 class="ui red center aligned header"> Add Bill </h2>
+                <div class="field">
+                    <label>Date Due</label>
+                    <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input placeholder="date" type="date" name="date" required>
                     </div>
-                    <button class="ui blue submit button">Add Bill</button>
-            </div>
+                </div>
+                <div class="field">
+                    <label>Bill Title</label>
+                    <input placeholder="Title" type="text" name="title">
+                </div>
+                <div class="field">
+                    <label>Amount</label>
+                    <input placeholder="00" type="number" name="amount">
+                </div>
+                <button class="ui blue submit button">Add Bill</button>
             </form>
         </div>
-        </div>
-    </section>
+    </div>
 </section>
 
 <script>
-    // for dropdown feature
+
     $('.ui .accordion')
             .accordion({
                 selector: {
