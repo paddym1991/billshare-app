@@ -1,9 +1,11 @@
 {{> expensepanel id="expense"}}
 
-<section class="ui center aligned middle aligned segment">
-    <h2 class="ui header">
-        {{expense.title}}: Payments
-    </h2>
-    {{> listpayments}}
-    {{> addpayment}}
+<section class="ui yellow inverted segment">
+    <section class="ui raised segment">
+        <h2 class="ui center aligned header">
+            {{expense.title}}: Payments
+        </h2>
+        {{> listpayments}}
+        {{> addpayment}}
+    </section>
 </section>
