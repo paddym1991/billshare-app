@@ -4,11 +4,9 @@
         <h2 class="ui header">
             {{title}}
         </h2>
-
-        <p> Total Amount: € {{total}} </p>
-        <p> split: {{#each payments}} € {{split}} {{/each}} </p>
-        <p> Owed: {{#each payments}} {{payer}} owed € {{owed}} for {{title}} {{/each}} </p>
-        <p> split:  € {{memberOwedTotal}}  </p>
+    <p>
+        {{#each payments}} <ul> {{payer}} owed € {{owed}} for {{title}} </ul> {{/each}}
+        </p>
         <a href="/expense/{{id}}" class="ui icon button">
             <i class="icon folder open"></i>
         </a>
