@@ -16,7 +16,7 @@ const group = {
     logger.debug('Group id = ', groupId);
     const viewData = {
       title: 'Group',
-      group: groupStore.getGroup(groupId),
+      group: group,
       expenses: expenseStore.getGroupExpenses(groupId),
       user: loggedInUser,
       members: members,
@@ -29,7 +29,7 @@ const group = {
     const groupId = request.params.id;
     const expenseId = request.params.expenseid;
     logger.debug(`Deleting Expense ${expenseId} from Group ${groupId}`);
-    expenseStore.removeExpense(groupId, expenseId);
+    expenseStore.removeExpense(expenseId);
     response.redirect('/group/' + groupId);
   },
 
