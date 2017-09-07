@@ -10,7 +10,7 @@ const billStore = {
   store: new JsonStore('./models/bill-store.json', { billCollection: [] }),
   collection: 'billCollection',
 
-  getAllBillss() {
+  getAllBills() {
     return this.store.findAll(this.collection);
   },
 

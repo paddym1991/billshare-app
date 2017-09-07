@@ -16,6 +16,7 @@ const accountsettings = {
     logger.info('abount to render', loggedInUser);
     response.render('accountsettings', viewData);
   },
+
   update(request, response) {
     let user = accounts.getCurrentUser(request);
     const updateUser = request.body;

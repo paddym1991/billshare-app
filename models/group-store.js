@@ -4,6 +4,7 @@ const _ = require('lodash');
 const JsonStore = require('./json-store');
 const logger = require('../utils/logger');
 const userStore = require('../models/user-store');
+const expenseStore = require('../models/expense-store');
 
 const groupStore = {
 
@@ -107,6 +108,15 @@ const groupStore = {
 
   getMemberById(id) {
     return this.store.findOneBy(this.collection, { id: id });
+  },
+
+  memberBalance(memberId) {
+    let balance = 0;
+    for(let i = 0; i < group.expenses.payments; i++){
+      if (group.member.firstname && group.member.lastname == payment.payer){
+        balance += payment.amount;
+      }
+    }
   },
   /*
   addExpense(id, expense) {

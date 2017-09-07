@@ -25,6 +25,11 @@ const expenseStore = {
   getGroupExpenses(groupId) {
     return this.store.findBy(this.collection, { groupid: groupId });
   },
+
+  getMemberExpenses(memberId) {
+    return this.store.findBy(this.collection, { memberid: memberId });
+  },
+
   /*
     addExpense(expense) {
       this.store.add(this.collection, expense);
@@ -67,18 +72,29 @@ const expenseStore = {
 
     let memberOwedTotal = 0;
     for (let i = 0; i < expense.payments.length; i++) {
-      memberOwedTotal += (payment.split * (group.members.length - 1)).toFixed(2);
+      memberOwedTotal += (split * (group.members.length - 1));
     }
     expense.memberOwedTotal = memberOwedTotal;
 
 
 
     const paid = splitTotal;
-    const owed = (split * (group.members.length - 1)).toFixed(2);
+    const owed = ((split) * (group.members.length - 1)).toFixed(2);
     const owedByMember = split;
     payment.paid = paid;
     payment.owed = owed;
     payment.owedByMember = owedByMember;
+
+    /*
+    let payerTotal = 0;
+    for(let i = 0; i < expense.payments.length; i++) {
+      for (let i = 0; i < expense.members.length; i++)
+      if(expense.members[i].firstname && expense.members[i].lastname === expense.payments[i].payer) {
+        payerTotal += expense.payments[i].amount;
+      }
+    }
+    payment.payerTotal = payerTotal;
+    */
     /*
     const member = group.getMember
     let moneyOwed = 0;
@@ -105,7 +121,49 @@ const expenseStore = {
     this.store.save();
   },
 
+  getMemberPayments(expenseId, paymentId) {
+    const expense = expenseStore.getExpense(expenseId);
+    const members = payment.members;
+    const member = payment.member;
+    const payments = expense.payments;
+    const payment = expenseStore.getPaymentById(paymentId);
+    const payer = payment.payer;
+    for(let i = 0; i < payments.length; i++){
+      for(let i = 0; i < payment.members.length; i++) {
+        if ((payer.firstname === member.firstname) && (payer.lastname === member.lastname)) {
+          return payment.amount;
+        }
+      }
+    }
+  },
+
+
   getPaymentById(id) {
+    return this.store.findOneBy(this.collection, { id: id });
+  },
+
+  getPayerPayments(expenseId, payer) {
+    const expense = this.getExpense(expenseId);
+    const payments = expense.payments;
+    for (let i = 0; i < payments.length; i++) {
+      if (payments[i].payer = payer) {
+        return payments[i];
+      }
+    }
+    return payments;
+  },
+
+  getUserExpenses(userId) {
+    return this.store.findBy(this.collection, { userid: userId });
+  },
+
+  getGroupMembers(groupId) {
+    const group = groupStore.getGroup(groupId);
+    const members = group.members;
+    return members;
+  },
+
+  getMemberById(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },
 
